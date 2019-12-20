@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/krtb/hermes/issues"
   },
-  "homepage": "https://github.com/krtb/hermes#readme"
+  "homepage": "https://github.com/krtb/hermes#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
