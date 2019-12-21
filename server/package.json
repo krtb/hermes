@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/krtb/hermes#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "passport-google-oauth20": "^2.0.0"
   }
 }
