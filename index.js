@@ -23,6 +23,13 @@ app.get(
     )
 )
 
+app.get('/google/callback',
+    passport.authenticate('google', {
+        successRedirect: '/profile',
+        failureRedirect: '/fail'
+    })
+)
+
 const PORT = process.env.PORT || 5000
 
 console.log(`App is running on port ${PORT}`)
