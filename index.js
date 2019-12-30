@@ -28,12 +28,7 @@ app.get(
     )
 )
 
-app.get('/google/callback',
-    passport.authenticate('google', {
-        successRedirect: '/profile',
-        failureRedirect: '/fail'
-    })
-)
+app.get('/auth/google/callback', passport.authenticate('google'))
 
 const PORT = process.env.PORT || 5000
 
