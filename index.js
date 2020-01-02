@@ -1,4 +1,5 @@
 const express = require('express')
+require('./services/passport')
 
 const app = express()
 
