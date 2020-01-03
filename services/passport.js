@@ -3,6 +3,9 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
 
+// not importing or requiring becuase Moch or other testing will make multiple calls
+const User = mongoose.model('users');
+
 passport.use(new GoogleStrategy(
     {
         clientID: keys.googleClientID,
