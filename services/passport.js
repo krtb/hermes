@@ -6,6 +6,22 @@ const keys = require('../config/keys');
 // not importing or requiring because Mocha or other testing will make multiple calls
 const User = mongoose.model('users');
 
+// add cookie, unique info to User
+passport.serializeUser((user, done) => {
+    // done is a callback
+    // user is object, just pulled out of database below
+    done(null, user.id)
+})
+
+// remove info that was serialized
+passport.deserializeUser((user, done) => {
+
+    User.find(user.id).then(user => {
+        done(null, user)
+    })
+
+})
+
 passport.use(new GoogleStrategy(
     {
         clientID: keys.googleClientID,
