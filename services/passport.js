@@ -14,10 +14,6 @@ passport.use(new GoogleStrategy(
     },
     (accessToken, refreshToken, profile, done) => {
 
-        console.log('ACCESS TOKEN', accessToken);
-        console.log('REFRESH TOKEN', refreshToken);
-        console.log('profile:', profile);
-
-        done(null, profile);
+        
     }
 ));
