@@ -14,6 +14,21 @@ passport.use(new GoogleStrategy(
     },
     (accessToken, refreshToken, profile, done) => {
 
-        
+        // check if User google profile id already exists in database
+        User.findOne({ googleId: profile.id })
+            .then((existingUser) => {
+                if (existingUser) {
+
+                    done(null, existingUser)
+
+                } else {
+
+                    // if !User, save to database, then return User
+                    new User({ googleId: profile.id })
+                        .save()
+                        .then(user => done(null, user))
+
+                }
+            })
     }
 ));
