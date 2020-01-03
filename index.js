@@ -6,6 +6,8 @@ const keys = require('./config/keys')
 require('./models/User') // require User before it's used in passport require below
 require('./services/passport')
 
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, });
+
 const app = express()
 require('./routes/authRoutes')(app)
 
