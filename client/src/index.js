@@ -3,4 +3,7 @@ import ReactDOM from 'react-redux';
 
 import App from './components/App';
 
-ReactDOM.render()
+ReactDOM.render(
+    <App />, 
+    document.querySelector('#root')
+);
