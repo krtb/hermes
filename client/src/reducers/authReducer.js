@@ -1,3 +1,3 @@
-export default authReducer = () => {
-    
+export default authReducer = (state={}, action) => {
+
 }
