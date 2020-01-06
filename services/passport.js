@@ -29,23 +29,15 @@ passport.use(new GoogleStrategy(
         callbackURL: '/auth/google/callback',
         proxy: true,
     },
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
 
         // check if User google profile id already exists in database
-        User.findOne({ googleId: profile.id })
-            .then((existingUser) => {
+        const existingUser = await User.findOne({ googleId: profile.id })
                 if (existingUser) {
-
                     done(null, existingUser)
-
-                } else {
-
-                    // if !User, save to database, then return User
-                    new User({ googleId: profile.id })
-                        .save()
-                        .then(user => done(null, user))
-
                 }
-            })
+                // if !User, save to database, then return User
+                const user =  await new User({ googleId: profile.id }).save()
+                done(null, user)
     }
 ));
