@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Router } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 const Dashboard = () => <h2>Dashboard</h2>
 const SurveyNew = () => <h2>SurveyNew</h2>
