@@ -10,6 +10,7 @@ const App = () => {
     return(
         <div>
             <BrowserRouter>
+                <Header/>
                 <Route exact={true} path="/" component={Landing} />
 
                 <Route exact path="/surveys" component={Dashboard} />
