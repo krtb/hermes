@@ -8,9 +8,9 @@ class Header extends Component {
         return(
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">Logo</a>
+                    <a href="#" class="brand-logo">HERMES</a>
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li><a href="collapsible.html">JavaScript</a></li>
+                        <li><a>Log In</a></li>
                     </ul>
                 </div>
             </nav>
