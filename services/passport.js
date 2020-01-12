@@ -16,7 +16,7 @@ passport.serializeUser((user, done) => {
 // remove info that was serialized
 passport.deserializeUser((user, done) => {
 
-    User.find(user.id).then(user => {
+    User.findById(user.id).then(user => {
         done(null, user)
     })
 
