@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
+import { connect } from 'react-redux';
 
 class Payments extends Component {
     render(){
@@ -11,4 +12,4 @@ class Payments extends Component {
     } 
 }
 
-export default Payments;
+export default connect()(Payments);
