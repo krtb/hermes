@@ -8,7 +8,7 @@ export const fetchUser = () => async dispatch => {
 }
 
 // (purpose): handle token sent from Stripe to identify user
-export const handleToken = () => async dispatch => {
+export const handleToken = (token) => async dispatch => {
         const res = await axios.post('api/stripe', token)
         dispatch({type: FETCH_USER, payload: res.data})
 }
