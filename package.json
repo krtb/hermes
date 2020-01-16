@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "An aggregator to scrape job postings",
   "main": "index.js",
+  "engines": {
+    "node": "13.2.0",
+    "npm": "6.13.4"
+  },
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
@@ -30,6 +34,7 @@
     "nodemon": "^2.0.2",
     "passport": "^0.4.1",
     "passport-google-oauth20": "2",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "stripe": "^8.2.0"
   }
 }
