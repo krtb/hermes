@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
-class Header extends Component {
+// steps to connect to redux store
+// import connect function
+// define mapStateToProps function
 
-    // conditionally render based on state from authReducer & fetchUser action
+class Header extends Component {
     renderContent = () => {
+        // User model being fetched is available inside component as this.props.auth
         switch (this.props.auth) {
             case null:
                 return 'Loading...';
@@ -13,22 +16,23 @@ class Header extends Component {
                 return <li> <a href="/auth/google" > Login with Google </a> </li>;
             default:
                 return [
-                    <li key="1" ><Payments /> </li>,
-                    <li style={{ margin: '0 10px' }} > Credits: {this.props.auth} </li>,
+                    <li key="1" > <Payments /> </li>,
+                    <li key="3" style={{ margin: '0 10px' }}> Credits: {this.props.auth.credits} </li>,
                     <li key="2" > <a href="/api/logout" > Log out </a> </li>
                 ];
         }
     }
 
     render() {
-        return(
+        console.log(this.props, 'from HEADER.js')
+        return (
             <nav>
-                <div class="nav-wrapper">
-                    <Link to={ this.props.auth ? '/surveys' : '/' } >
-                        HERMES
+                <div className="nav-wrapper">
+                    <Link to={this.props.auth ? '/surveys' : '/'}
+                        className="brand-logo">Hermes
                     </Link>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        { this.renderContent() }
+                    <ul id="nav-mobile" className="right hide-on-med-and-down">
+                        {this.renderContent()}
                     </ul>
                 </div>
             </nav>
@@ -36,10 +40,10 @@ class Header extends Component {
     }
 }
 
-function mapStateToProps ({auth}) {
-    return {
-        auth
-    }
+// destructure attributes from state
+function mapStateToProps({ auth }) {
+    // combine auth:auth
+    return { auth }
 }
 
 export default connect(mapStateToProps)(Header);
