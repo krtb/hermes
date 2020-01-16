@@ -1,10 +1,15 @@
+// require npm file
 const passport = require('passport')
 
+// user comes to this route,
+// managed by passport,
+// asking for specific scopes from users google account
 module.exports = (app) => {
-    app.get(
-        '/auth/google',
+    app.get('/auth/google',
         passport.authenticate('google', {
-            scope: ['profile', 'email']
+            scope: [
+                'profile', 'email'
+            ]
         }
         )
     )
@@ -26,6 +31,7 @@ module.exports = (app) => {
         res.redirect('/')
     })
 
+    // route that decides IF a user is signed into the application
     app.get('/api/current_user', (req, res) => {
         res.send(req.user)
     })
