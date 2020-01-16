@@ -8,7 +8,7 @@
 // [1] Either remove "proxy" from package.json, or make it a string.
 
 const proxy = require('http-proxy-middleware')
-
+// forward requests to express/node API
 module.exports = function (app) {
     app.use(proxy(['/api', '/auth/google'], { target: 'http://localhost:5000' }));
 }
